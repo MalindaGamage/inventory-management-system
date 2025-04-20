@@ -1,6 +1,3 @@
-Here's a polished GitHub README.md version of your Inventory Management System project:
-
-```markdown
 # Inventory Management System
 
 ![Java](https://img.shields.io/badge/Java-17%2B-blue)
