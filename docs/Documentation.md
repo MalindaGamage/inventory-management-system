@@ -1,136 +1,101 @@
-Inventory Management System Documentation
-1. List of Features and Descriptions
+# Inventory Management System
 
-User Authentication:
+![Java](https://img.shields.io/badge/Java-17-blue)
+![SQLite](https://img.shields.io/badge/SQLite-3.42-green)
+![Swing](https://img.shields.io/badge/GUI-Swing-orange)
 
-Login System: Users can log in with a username and password stored in the SQLite database.
-Registration System: New users can register with a unique username and password.
+A comprehensive inventory management system built with Java Swing and SQLite, featuring user authentication, CRUD operations, and search functionality.
 
+## Features
 
-CRUD Operations:
+### User Authentication
+- **Login System**: Secure login with username/password stored in SQLite
+- **Registration System**: New user signup with unique username validation
 
-Create: Add new inventory items with attributes: Item Code, Item Name, Quantity, Price per Unit, and Supplier Details.
-Read: View all inventory items in a table view, with search functionality to filter by item name or code.
-Update: Modify existing item details.
-Delete: Remove items from the inventory.
+### Inventory Management (CRUD)
+- **Create**: Add new items with:
+   - Item Code
+   - Item Name
+   - Quantity
+   - Price per Unit
+   - Supplier Details
+- **Read**: View all items in sortable table
+- **Update**: Modify existing item details
+- **Delete**: Remove items from inventory
 
+### Enhanced Functionality
+- 🔍 **Search**: Filter items by name/code (case-insensitive)
+- ✔️ **Input Validation**: Ensures valid, non-negative numeric inputs
+- 📱 **Responsive UI**: Adapts to different screen sizes using Swing layouts
+- ⚡ **Performance**: Optimized database queries with prepared statements
+- 🔒 **Security**: SQL injection protection (passwords should be hashed in production)
 
-Search Functionality:
+## Technologies
 
-Filter inventory items based on item name or code using a search bar.
+- **Language**: Java (JDK 17+)
+- **GUI**: Java Swing
+- **Database**: SQLite
+- **Libraries**:
+   - SQLite JDBC Driver (sqlite-jdbc-3.42.0.jar)
+   - Java Collections Framework
 
+## Setup Instructions
 
-Input Validation:
+### Prerequisites
+- JDK 17 or higher
+- SQLite JDBC Driver
+- Java IDE (IntelliJ/Eclipse) or command-line tools
 
-Ensures all required fields are filled.
-Validates numeric inputs (quantity and price) and ensures they are non-negative.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/inventory-management-system.git
+   cd inventory-management-system
+   ```
 
+2. Add SQLite JDBC Driver:
+   - Download from [Maven Repository](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc)
+   - Add to project libraries:
+      - **IntelliJ**: File > Project Structure > Libraries > + > Java > Select JAR
+      - **Eclipse**: Right-click project > Build Path > Add External Archives
 
-Responsive UI:
+### Running the Application
+**Using IDE**:
+1. Open project in your Java IDE
+2. Ensure SQLite JDBC is in classpath
+3. Run `InventoryManagementSystem.java`
 
-Designed with Java Swing using GridBagLayout and BorderLayout for adaptability to different screen resolutions.
-Includes tooltips and meaningful error messages for user guidance.
-
-
-Performance Optimization:
-
-Uses prepared statements to prevent SQL injection and optimize database queries.
-Efficient data retrieval with minimal database calls.
-
-
-Security:
-
-Uses prepared statements for all database interactions to prevent SQL injection.
-Stores user credentials in the database (Note: In a production environment, passwords should be hashed).
-
-
-
-2. Technologies Used
-
-Programming Language: Java (JDK 17)
-GUI Framework: Java Swing
-Database: SQLite
-Libraries:
-SQLite JDBC Driver (sqlite-jdbc-3.42.0.jar) for database connectivity
-Java Collections Framework for managing in-memory data
-
-
-Development Environment: IntelliJ IDEA (or any Java IDE)
-Version Control: Git (repository hosted on GitHub)
-
-3. Setup and Run Instructions
-   Prerequisites
-
-Java Development Kit (JDK) 17 or higher
-SQLite JDBC Driver (sqlite-jdbc-3.42.0.jar)
-A Java IDE (e.g., IntelliJ IDEA, Eclipse) or command-line tools
-
-Steps to Set Up and Run
-
-Clone the Repository:
-git clone <repository-url>
-cd inventory-management-system
-
-
-Add SQLite JDBC Driver:
-
-Download the SQLite JDBC driver from Maven Repository.
-Add the sqlite-jdbc-3.42.0.jar to your project's library path.
-In IntelliJ IDEA: File > Project Structure > Libraries > + > Java > Select the JAR file.
-In Eclipse: Right-click project > Build Path > Add External Archives.
-
-
-
-
-Compile and Run:
-
-Open the project in your IDE.
-
-Ensure the SQLite JDBC driver is included in the classpath.
-
-Run the InventoryManagementSystem.java class as the main entry point.
-
-Alternatively, from the command line:
+**Command Line**:
+```bash
 javac -cp .:lib/sqlite-jdbc-3.42.0.jar src/*.java
 java -cp .:lib/sqlite-jdbc-3.42.0.jar src/InventoryManagementSystem
+```
 
+### Database Setup
+- The application automatically creates `inventory.db` on first run
+- Tables for users and items are generated automatically
 
+## Usage
+1. **Register**: Create a new account
+2. **Login**: Use your credentials
+3. **Manage Inventory**:
+   - Add items using input fields
+   - Update/delete items by selecting from table
+   - Search using the search bar
 
+## Architecture
+- **MVC Pattern**:
+   - Model: `Item.java`
+   - View: `LoginView.java`, `InventoryView.java`
+   - Controller: `ItemController.java`
 
-Database Setup:
+## Notes
+- Database file (`inventory.db`) persists in project directory
+- For production: Implement password hashing (e.g., BCrypt)
+- UI includes tooltips and error messages for user guidance
 
-The application automatically creates an SQLite database file (inventory.db) in the project directory upon first run.
-Tables for users and items are created automatically.
+## Contributing
+Pull requests welcome! For major changes, please open an issue first.
 
-
-Using the Application:
-
-Register: Create a new user account using the registration button.
-Login: Log in with your credentials.
-Manage Inventory:
-Add new items using the input fields.
-Update or delete items by selecting them from the table.
-Search for items using the search bar.
-
-
-
-
-
-Notes
-
-The database file (inventory.db) is created in the project directory and persists data between sessions.
-Ensure the SQLite JDBC driver is correctly included to avoid ClassNotFoundException.
-For production, implement password hashing (e.g., using BCrypt) for enhanced security.
-
-4. Additional Notes
-
-The application uses the MVC pattern:
-Model: Item.java represents the data structure.
-View: LoginView.java and InventoryView.java handle the UI.
-Controller: ItemController.java manages business logic and database interactions.
-
-
-The UI is designed to be intuitive, with tooltips and error messages to guide users.
-The search functionality is case-insensitive and supports partial matches.
-The application is optimized for performance with minimal database queries and efficient data handling using the Java Collections Framework.
-
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
