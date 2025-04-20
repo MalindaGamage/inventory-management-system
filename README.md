@@ -1,6 +1,3 @@
-Here's a polished GitHub README.md version of your Inventory Management System project:
-
-```markdown
 # Inventory Management System
 
 ![Java](https://img.shields.io/badge/Java-17%2B-blue)
@@ -111,8 +108,6 @@ inventory-management-system/
 - **Deadline**: 11/05/2025 @ 11:59 PM via Blackboard
 
 ## License
-
-*(You might want to add a license here)*  
 This project is licensed under the MIT License.
 ```
 
